@@ -11,8 +11,11 @@
 # #SBATCH --mail-type=ALL
 # #SBATCH --mail-user=<email>
 
+# select project
+jutil env activate -p covid19dynstat
+
 # ensure SLURM output/errors directory exists
-mkdir -p /p/project/covid19dynstat/${USER}/runs/
+mkdir -p ${PROJECT}/${USER}/runs/
 
 # run tasks
 srun --exclusive -n ${SLURM_NTASKS} gridjob_sample_ia.slurm.sh
